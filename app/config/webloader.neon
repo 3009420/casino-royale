@@ -1,0 +1,29 @@
+#
+# Konfigurace webloaderu
+#
+
+services:
+    wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%, %basePath%)
+
+webloader:
+    css:
+        default:
+            fileFilters:
+                - @wlCssFilter
+            tempDir: %webtempdir%
+            files:
+                - %bowerdir%/bootstrap/dist/css/bootstrap.css
+                - %bowerdir%/fontawesome/css/font-awesome.css
+                - %wwwDir%/css/style.css
+        print:
+            - %wwwDir%/css/print.css
+
+    js:
+        default:
+            tempDir: %webtempdir%
+            files:
+                - %bowerdir%/jquery/jquery.min.js
+                - %bowerdir%/bootstrap/dist/js/bootstrap.min.js
+
+                - %bowerdir%/nette.ajax.js/nette.ajax.js
+                - %wwwDir%/js/main.js

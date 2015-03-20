@@ -1,0 +1,30 @@
+{
+    "name": "casino-royale",
+    "version": "0.0.0",
+    "description": "An online casino game simulator",
+    "main": "index.php",
+    "keywords": [
+        "casino",
+        "ryoale",
+        "game"
+    ],
+    "authors": [
+        "Raito"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "1.10.*",
+        "jqueryui": "1.10.*",
+        "bootstrap": "3.3.*",
+        "nette.ajax.js": "1.2.*",
+        "fontawesome": "4.3.0"
+    }
+}
