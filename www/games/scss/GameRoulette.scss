@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Apr 14, 2015, 6:08:20 PM
+    Author     : Raito
+*/
+
+$reds: #870000;
+$blacks: #333333;
+
+$btnText: #fff;
+
+.game#roulette{
+
+    #board {
+        .column {
+            div {
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-bottom: 5px;
+
+                font-weight: bold;
+
+                div.btn-zero{
+                    height: 180px;
+                }
+
+                div.btn-red{
+                    background-color: $reds;
+                    color: $btnText;
+                }
+
+                div.btn-blk{
+                    background-color: $blacks;
+                    color: $btnText;
+                }
+
+                div.btn-num{
+                    height: 50px;
+                }
+            }
+        }
+    }
+}

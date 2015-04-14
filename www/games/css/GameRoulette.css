@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Apr 14, 2015, 6:08:20 PM
+    Author     : Raito
+*/
+.game#roulette #board .column div {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+  font-weight: bold; }
+  .game#roulette #board .column div div.btn-zero {
+    height: 180px; }
+  .game#roulette #board .column div div.btn-red {
+    background-color: #870000;
+    color: #fff; }
+  .game#roulette #board .column div div.btn-blk {
+    background-color: #333333;
+    color: #fff; }
+  .game#roulette #board .column div div.btn-num {
+    height: 50px; }
+
+/*# sourceMappingURL=GameRoulette.css.map */

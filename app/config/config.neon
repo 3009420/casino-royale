@@ -35,6 +35,7 @@ extensions:
     webloader: WebLoader\Nette\Extension
 
 services:
-	- App\Model\UserManager
-	- App\Forms\SignFormFactory
-	router: App\RouterFactory::createRouter
+        - App\Model\UserManager
+        - App\Model\Generator
+        - App\Forms\SignFormFactory
+        router: App\RouterFactory::createRouter

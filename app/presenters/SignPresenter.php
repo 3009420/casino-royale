@@ -29,7 +29,7 @@ class SignPresenter extends BasePresenter
     {
         $form = $this->factory->create();
         $form->onSuccess[] = function ($form) {
-            $form->getPresenter()->redirect('Homepage:');
+            $form->getPresenter()->redirect('Dashboard:');
         };
         return $form;
     }
