@@ -6,109 +6,140 @@
 
 <div class="game" id="roulette">
     
-
-
+    <h2>Your bets</h2>
+    <div id="bets" class="col-xs-12">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-xs-3">Put on:</th>
+                    <th class="col-xs-2">Credits:</th>                    
+                    <th class="col-xs-2">Possibile win:</th>
+                    <th class="col-xs-2">Possibile loss:</th>
+                    <th class="col-xs-1">Ratio:</th>
+                    <th class="col-xs-2">Options:</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td colspan="6" class="text-center text-muted ">There is no bet. To place a bet, click on any deck box.</td>
+                </tr>
+            </tbody>
+            
+            <tfoot>
+                <tr>
+                    <th>Total:</th>
+                    <th></th>
+                    <th class="text-success"></th>
+                    <th class="text-danger"></th>
+                    <th colspan="2"></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+    <h2>Deck</h2>
     <div id="board" class="col-xs-12 well">
         <div class="row">
             <div class="col-xs-1 column">
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-zero btn-success">0</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-zero btn-success" data-value="3" data-ratio="35" data-color="green">0</div></div>
                 </div>
             </div>
 
             <div class="col-xs-3 column">
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="3">3</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="6">6</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="9">9</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="12">12</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="3" data-ratio="35" data-color="red">3</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="6" data-ratio="35" data-color="black">6</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="9" data-ratio="35" data-color="red">9</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="12" data-ratio="35" data-color="red">12</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="2">2</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="5">5</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="8">8</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="11">11</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="2" data-ratio="35" data-color="black">2</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="5" data-ratio="35" data-color="red">5</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="8" data-ratio="35" data-color="black">8</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="11" data-ratio="35" data-color="black">11</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="1">1</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="4">4</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="7">7</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="10">10</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="1" data-ratio="35" data-color="red">1</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="4" data-ratio="35" data-color="black">4</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="7" data-ratio="35" data-color="red">7</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="10" data-ratio="35" data-color="black">10</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="112" data-name="1st 12">1st 12</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="112" data-name="1st 12" data-ratio="2" data-color="green">1st 12</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="118" data-name="1 - 18">1 - 18</div></div>
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="101" data-name="Even">Even</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="118" data-name="1 - 18" data-ratio="1" data-color="green">1 - 18</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="101" data-name="Even" data-ratio="1" data-color="green">Even</div></div>
                 </div>
             </div>
 
             <div class="col-xs-3 column"> 
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="15">15</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="18">18</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="21">21</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="24">24</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="15" data-ratio="35" data-color="black">15</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="18" data-ratio="35" data-color="red">18</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="21" data-ratio="35" data-color="red">21</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="24" data-ratio="35" data-color="black">24</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="14">14</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="17">17</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="20">20</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="23">23</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="14" data-ratio="35" data-color="red">14</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="17" data-ratio="35" data-color="black">17</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="20" data-ratio="35" data-color="black">20</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="23" data-ratio="35" data-color="red">23</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="13">13</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="16">16</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="19">19</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="22">22</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="13" data-ratio="35" data-color="black">13</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="16" data-ratio="35" data-color="red">16</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="19" data-ratio="35" data-color="red">19</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="22" data-ratio="35" data-color="black">22</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="212" data-name="2nd 12">2nd 12</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="212" data-name="2nd 12" data-ratio="2" data-color="green">2nd 12</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-blk" data-value="103" data-name="Black">Black</div></div>
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-red" data-value="104" data-name="Red">Red</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-blk" data-value="103" data-name="Black" data-ratio="1" data-color="black">Black</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-red" data-value="104" data-name="Red" data-ratio="1" data-color="red">Red</div></div>
                 </div>
             </div>
 
             <div class="col-xs-3 column">
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="27">27</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="30">30</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="33">33</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="36">36</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="27" data-ratio="35" data-color="red">27</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="30" data-ratio="35" data-color="red">30</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="33" data-ratio="35" data-color="black">33</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="36" data-ratio="35" data-color="red">36</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="26">26</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="29">29</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="32">32</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="35">35</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="26" data-ratio="35" data-color="black">26</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="29" data-ratio="35" data-color="black">29</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="32" data-ratio="35" data-color="red">32</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="35" data-ratio="35" data-color="black">35</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="25">25</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="28">28</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="31">31</div></div>
-                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="34">34</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="25" data-ratio="35" data-color="red">25</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="28" data-ratio="35" data-color="black">28</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-blk" data-value="31" data-ratio="35" data-color="black">31</div></div>
+                    <div class="col-xs-3"><div class="col-xs-12 btn btn-num btn-red" data-value="34" data-ratio="35" data-color="red">34</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="212" data-name="3rd 12">3rd 12</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-success" data-value="212" data-name="3rd 12" data-ratio="2" data-color="green">3rd 12</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="100" data-name="Odd">Odd</div></div>
-                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="1936" data-name="19 - 36">19 - 36</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="100" data-name="Odd" data-ratio="1" data-color="green">Odd</div></div>
+                    <div class="col-xs-6"><div class="col-xs-12 btn btn-success" data-value="1936" data-name="19 - 36" data-ratio="1" data-color="green">19 - 36</div></div>
                 </div>
             </div>
 
             <div class="col-xs-2 column">
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="105" data-name="2 to 1 (1. row)">2 to 1</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="105" data-name="2 to 1 (1. row)" data-ratio="2" data-color="green">2 to 1</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="106" data-name="2 to 1 (2. row)">2 to 1</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="106" data-name="2 to 1 (2. row)" data-ratio="2" data-color="green">2 to 1</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="107" data-name="2 to 1 (3. row)">2 to 1</div></div>
+                    <div class="col-xs-12"><div class="col-xs-12 btn btn-num btn-success" data-value="107" data-name="2 to 1 (3. row)" data-ratio="2" data-color="green">2 to 1</div></div>
                 </div>
             </div>
         </div>
