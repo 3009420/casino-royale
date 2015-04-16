@@ -22,5 +22,13 @@ and open the template in the editor.
     color: #fff; }
   .game#roulette #board .column div div.btn-num {
     height: 50px; }
+.game#roulette #modal-bet .credits .amount {
+  font-size: 16px; }
+.game#roulette #modal-bet #bet-amount {
+  font-size: 30px;
+  height: 53px;
+  text-align: center; }
+.game#roulette #bets table .bet#0 {
+  display: none; }
 
 /*# sourceMappingURL=GameRoulette.css.map */

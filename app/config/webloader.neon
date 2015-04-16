@@ -15,6 +15,7 @@ webloader:
                 - %bowerdir%/bootstrap/dist/css/bootstrap.css
                 - %bowerdir%/fontawesome/css/font-awesome.css
                 - %wwwDir%/css/style.css
+
                 - %wwwDir%/games/css/GameRoulette.css
         print:
             - %wwwDir%/css/print.css
@@ -28,3 +29,5 @@ webloader:
 
                 - %bowerdir%/nette.ajax.js/nette.ajax.js
                 - %wwwDir%/js/main.js
+
+                - %wwwDir%/games/js/GameRoulette.js
