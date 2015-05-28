@@ -23,7 +23,11 @@ application:
 	errorPresenter: Error
 	mapping:
 		*: App\*Module\Presenters\*Presenter
-
+nette:
+    debugger:
+            maxDepth: 10
+            maxLen: 500
+            showLocation: true
 
 session:
 	expiration: 14 days
@@ -31,11 +35,21 @@ session:
 includes:
     - webloader.neon
 
+    ## Roulette Game:
+    - games/roulette.config.neon
+
 extensions:
     webloader: WebLoader\Nette\Extension
 
 services:
         - App\Model\UserManager
+        - App\Model\Player
         - App\Model\Generator
         - App\Forms\SignFormFactory
+
+        ## Roulette Game:
+        - App\Model\Games\Roulette(%game.roulette.gamedata%, %game.roulette.boxmatch%)
+        - App\Forms\Games\Roulette\BetFormFactory
+
+
         router: App\RouterFactory::createRouter

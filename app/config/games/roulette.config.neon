@@ -1,0 +1,19 @@
+parameters:
+    game:
+        roulette:
+            gamedata:
+                name: Roulette
+                version: 0.0.1
+                id: game-roulette
+
+            boxmatch:
+                0:
+                    - 0
+                1:
+                    - 1
+                    - 107
+                    - 112
+                    - 118
+                    - 101
+
+

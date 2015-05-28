@@ -12,13 +12,6 @@ use Nette,
 class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 {
 
-    const
-      TABLE_NAME = 'user',
-      COLUMN_ID = 'id',
-      COLUMN_EMAIL = 'email',
-      COLUMN_PASSWORD_HASH = 'password',
-      COLUMN_ROLE = 'role';
-
     /** @var Nette\Database\Context */
     private $database;
 
@@ -36,22 +29,26 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
     {
         list($email, $password) = $credentials;
 
-        $row = $this->database->table(self::TABLE_NAME)->where(self::COLUMN_EMAIL, $email)->fetch();
+        $row = $this->database->table('user')->where('email', $email)->fetch();
 
-        if (!$row || !Passwords::verify($password, $row[self::COLUMN_PASSWORD_HASH]))
+        if (!$row || !Passwords::verify($password, $row['password']))
         {
             throw new Nette\Security\AuthenticationException('Email or password is incorrect.', self::IDENTITY_NOT_FOUND);
         }
-        elseif (Passwords::needsRehash($row[self::COLUMN_PASSWORD_HASH]))
+        elseif (Passwords::needsRehash($row['password']))
         {
             $row->update(array(
-                self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
+                'password' => Passwords::hash($password),
             ));
         }
 
+        dump($row->role->name);
+
         $arr = $row->toArray();
-        unset($arr[self::COLUMN_PASSWORD_HASH]);
-        return new Nette\Security\Identity($row[self::COLUMN_ID], $row[self::COLUMN_ROLE], $arr);
+        $arr['bets'] = array();
+
+        unset($arr['password']);
+        return new Nette\Security\Identity($row->id, $row->role->name, $arr);
     }
 
     /**
@@ -64,9 +61,9 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
     {
         try
         {
-            $this->database->table(self::TABLE_NAME)->insert(array(
-                self::COLUMN_EMAIL         => $email,
-                self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
+            $this->database->table('user')->insert(array(
+                'email'    => $email,
+                'password' => Passwords::hash($password),
             ));
         }
         catch (Nette\Database\UniqueConstraintViolationException $e)

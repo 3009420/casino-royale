@@ -2,14 +2,16 @@
 
 namespace App\Presenters;
 
-use Nette,
-    App\Model;
+use Nette;
 
 /**
  * Base presenter for all application presenters.
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
+
+    /** @var \App\Model\Player @inject */
+    public $player;
 
     public function startup()
     {
@@ -21,6 +23,11 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         {
             $this->redirect('Sign:in');
         }
+    }
+
+    public function getPlayerRealCredits()
+    {
+        return $this->player->getRealCredits();
     }
 
     public function createComponentCss()
