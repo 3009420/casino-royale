@@ -42,13 +42,11 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
             ));
         }
 
-        dump($row->role->name);
-
         $arr = $row->toArray();
         $arr['bets'] = array();
 
         unset($arr['password']);
-        return new Nette\Security\Identity($row->id, $row->role->name, $arr);
+        return new Nette\Security\Identity($row->id, $row->user_role->name, $arr);
     }
 
     /**
