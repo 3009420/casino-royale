@@ -552,7 +552,7 @@ $(document).ready(function () {
 
         $(modal + ' #bet-value').val($(this).data('value'));
 
-        $(modal + ' #bet-win').html(calculatePossibileWin($(modal + ' #bet-amount').val(), $(this).data('ratio')));
+        $(modal + ' #bet-win').html(calculatePossibileWin($(modal + ' #bet-amount').val(), $(this).data('ratio')) + ' Cr');
 
         $(modal).modal();
     });
@@ -566,7 +566,7 @@ $(document).ready(function () {
     });
 
     $(document).on('keyup keypress blur change', '#bet-amount', function () {
-        $(modal + ' #bet-win').html(calculatePossibileWin($(this).val(), $(modal + ' #bet-ratio').data('value')));
+        $(modal + ' #bet-win').html(calculatePossibileWin($(this).val(), $(modal + ' #bet-ratio').data('value')) + ' Cr');
     });
 
 

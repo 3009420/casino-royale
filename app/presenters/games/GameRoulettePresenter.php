@@ -22,9 +22,12 @@ class GameRoulettePresenter extends GamePresenter
     public function startup()
     {
         parent::startup();
-        $this->player->getRealCredits();
-
         $this->version = $this->gamemodel->getVersion();
+    }
+
+    public function renderDefault()
+    {
+        $this->template->gameBets = $this->player->getBets($this->gamemodel->getGameid());
     }
 
     /**
@@ -40,15 +43,30 @@ class GameRoulettePresenter extends GamePresenter
 
     public function betFormSucceeded($form, $values)
     {
-
         try
         {
-            $this->gamemodel->placeBet($values['amount'], $values['value']);
+            $skipped = $this->gamemodel->placeBet($values['amount'], $values['value']);
+
+            if ($skipped)
+            {
+                $this->flashMessage('Your previous bet was changed.');
+            }
+            else
+            {
+                $this->flashMessage('Bet placed.', 'success');
+            }
         }
         catch (\Exception $e)
         {
             $this->flashMessage($e->getMessage());
         }
+
+        $this->redirect('GameRoulette:');
+    }
+
+    public function handleRemoveBet($uid)
+    {
+
     }
 
 }

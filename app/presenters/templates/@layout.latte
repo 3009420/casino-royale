@@ -38,6 +38,15 @@
                                 <li n:class="$presenter->isLinkCurrent('GameRoulette:*') ? active"><a n:href="GameRoulette:">Roulette</a></li>
                             </ul>
                         </li>
+                        
+                        {if $user->isInRole('admin')}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devmod <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a n:href="Devmod:addCash 1000">Give 1000 Cr</a></li>
+                            </ul>
+                        </li>
+                        {/if}
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">                      

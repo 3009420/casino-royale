@@ -42,13 +42,14 @@ extensions:
     webloader: WebLoader\Nette\Extension
 
 services:
+        - App\Model\Devmod
         - App\Model\UserManager
         - App\Model\Player
         - App\Model\Generator
         - App\Forms\SignFormFactory
 
         ## Roulette Game:
-        - App\Model\Games\Roulette(%game.roulette.gamedata%, %game.roulette.boxmatch%)
+        - App\Model\Games\Roulette(%game.roulette.gamedata%, %game.roulette.boxdata%)
         - App\Forms\Games\Roulette\BetFormFactory
 
 

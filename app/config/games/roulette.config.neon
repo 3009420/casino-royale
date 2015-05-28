@@ -6,14 +6,23 @@ parameters:
                 version: 0.0.1
                 id: game-roulette
 
-            boxmatch:
+            boxdata:
                 0:
+                    match:
                     - 0
+                    name:
+                    color: green
+                    ratio: 35
+
                 1:
+                    match:
                     - 1
                     - 107
                     - 112
                     - 118
                     - 101
+                    name:
+                    color: green
+                    ratio: 35
 
 

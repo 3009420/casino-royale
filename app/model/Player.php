@@ -27,6 +27,22 @@ class Player extends Nette\Object
     }
 
     /**
+     * Loads specified data from DB.
+     */
+    public function loadPlayerData()
+    {
+        if (!$this->user->getIdentity())
+        {
+            return false;
+        }
+
+        $row = $this->database->table('user')->get($this->user->id);
+        $this->user->getIdentity()->credits = $row->credits;
+        $this->user->getIdentity()->nick = $row->nick;
+        $this->user->getIdentity()->email = $row->email;
+    }
+
+    /**
      * Gets real amount of credits player can use
      * @return int
      */
@@ -46,12 +62,24 @@ class Player extends Nette\Object
      * @param int $amount
      * @throws Exception
      */
-    public function validateBet($amount)
+    public function validateBet($game, $amount, $data)
     {
+        $replaced = 0;
         if ($amount > $this->getRealCredits())
         {
             throw new \Exception('Insuficient free credits. Please lower your bet at lest to ' . $this->getRealCredits() . ' Cr.');
         }
+
+        foreach ($this->user->getIdentity()->bets as $bet => $param)
+        {
+            if ($param['game'] == $game && $param['data']['value'] == $data['value'])
+            {
+                unset($this->user->getIdentity()->bets[$bet]);
+                $replaced++;
+            }
+        }
+
+        return $replaced;
     }
 
     /**
@@ -60,18 +88,33 @@ class Player extends Nette\Object
      * @param type $amount
      * @param type $value
      */
-    public function addBet($game, $amount, $value)
+    public function addBet($game, $amount, $data)
     {
-        $this->validateBet($amount);
+        $replaced = $this->validateBet($game, $amount, $data);
 
         $data = array(
             'game'   => $game,
             'amount' => $amount,
-            'value'  => $value,
+            'data'   => $data,
             'uid'    => $this->createBetUid()
         );
 
         $this->user->getIdentity()->bets[] = $data;
+        return $replaced;
+    }
+
+    public function getBets($game)
+    {
+        $bets = array();
+
+        foreach ($this->user->getIdentity()->bets as $bet)
+        {
+            if ($bet['game'] == $game)
+            {
+                $bets[] = $bet;
+            }
+        }
+        return $bets;
     }
 
     /**

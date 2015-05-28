@@ -5,6 +5,9 @@
 <h1>Roulette</h1>
 
 <div class="game" id="roulette">
+    <div id="controls" class="col-xs-12">
+        
+    </div>
     
     <h2>Your bets</h2>
     {snippet roulette-bets}
@@ -15,37 +18,37 @@
                     <th class="col-xs-3">Put on:</th>
                     <th class="col-xs-2">Credits:</th>                    
                     <th class="col-xs-2">Possibile win:</th>
-                    <th class="col-xs-2">Possibile loss:</th>
-                    <th class="col-xs-1">Payout:</th>
-                    <th class="col-xs-2">Options:</th>
+                    <th class="col-xs-2">Payout:</th>
+                    <th class="col-xs-3">Options:</th>
                 </tr>
             </thead>
             
             <tbody>
+                {if count($gameBets) == 0}
                 <tr id="nobet">
                     <td colspan="6" class="text-center text-muted ">There is no bet. To place a bet, click on any deck box.</td>
                 </tr>
-                
-                
-                <tr class="bet" id="0">
-                    <td class="put"></td>
-                    <td class="amount"></td>
-                    <td class="pos-win text-success"></td>
-                    <td class="pos-los text-danger"></td>
-                    <td class="payout"></td>
-                    <td class="opts"></td>
-                </tr>
+                {else}
+                    {foreach $gameBets as $bet}
+                        <tr class="bet" id="{$bet['uid']}">
+                            <td class="vert-align put">
+                                {if $bet['data']['name']}
+                                    {$bet['data']['name']}
+                                {else}
+                                    Number {$bet['data']['value']}
+                                {/if}
+                            </td>
+                            <td class="vert-align amount">{$bet['amount']} Cr</td>
+                            <td class="vert-align pos-win text-success">{$bet['amount'] * $bet['data']['ratio']} Cr</td>
+                            <td class="vert-align payout">{$bet['data']['ratio']} to 1</td>
+                            <td class="opts">
+                                <a href="" class="btn btn-sm btn-info"><i class="fa fa-pencil-square-o fa-fw"></i> Change</a>
+                                <a n:href="removeBet! $bet['uid']" class="btn btn-sm btn-danger"><i class="fa fa-times fa-fw"></i> Remove</a>
+                            </td>
+                        </tr>
+                    {/foreach}
+                {/if}
             </tbody>
-            
-            <tfoot>
-                <tr>
-                    <th>Total:</th>
-                    <th></th>
-                    <th class="text-success"></th>
-                    <th class="text-danger"></th>
-                    <th colspan="2"></th>
-                </tr>
-            </tfoot>
         </table>
     </div>
     {/snippet}
@@ -60,8 +63,8 @@
                 </div>
                 <div class="modal-header bg-info">                    
                     <small class="modal-title row">
-                        <div class="col-xs-4">Credits: <strong>{$presenter->getPlayerRealCredits()} Cr</strong></div>
-                        <div class="col-xs-4">Payout: <strong id="bet-ratio"></strong></div>
+                        <div class="col-xs-5">Availabile credits: <strong>{$presenter->getPlayerRealCredits()} Cr</strong></div>
+                        <div class="col-xs-3">Payout: <strong id="bet-ratio"></strong></div>
                         <div class="col-xs-4">Possibile win: <strong id="bet-win"></strong></div>
                     </small>
                 </div>

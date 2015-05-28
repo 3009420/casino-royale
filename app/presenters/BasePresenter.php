@@ -23,6 +23,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         {
             $this->redirect('Sign:in');
         }
+
+        $this->refreshPlayerData();
+    }
+
+    public function refreshPlayerData()
+    {
+        $this->player->loadPlayerData();
     }
 
     public function getPlayerRealCredits()

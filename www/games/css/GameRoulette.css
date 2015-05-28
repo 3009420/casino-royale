@@ -30,5 +30,7 @@ and open the template in the editor.
   text-align: center; }
 .game#roulette #bets table .bet#0 {
   display: none; }
+.game#roulette .table tbody > tr > td.vert-align {
+  vertical-align: middle; }
 
 /*# sourceMappingURL=GameRoulette.css.map */

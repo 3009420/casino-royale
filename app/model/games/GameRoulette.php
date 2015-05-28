@@ -22,7 +22,7 @@ class Roulette extends \Nette\Object
     private $database;
 
     /** @var mixed */
-    private $boxmatch;
+    private $boxdata;
 
     /** @var mixed */
     private $gamedata;
@@ -31,23 +31,34 @@ class Roulette extends \Nette\Object
      *
      * @param Nette\Database\Context $database
      */
-    public function __construct($gamedata, $boxmatch, \Nette\Security\User $user, Nette\Database\Context $database, \App\Model\Player $player)
+    public function __construct($gamedata, $boxdata, \Nette\Security\User $user, Nette\Database\Context $database, \App\Model\Player $player)
     {
         $this->user = $user;
         $this->player = $player;
         $this->database = $database;
-        $this->boxmatch = $boxmatch;
+        $this->boxdata = $boxdata;
         $this->gamedata = $gamedata;
     }
 
     public function placeBet($amount, $value)
     {
-        $this->player->addBet($this->gamedata['id'], $amount, $value);
+        $data = array(
+            'value' => $value,
+            'name'  => $this->boxdata[$value]['name'],
+            'color' => $this->boxdata[$value]['color'],
+            'ratio' => $this->boxdata[$value]['ratio']
+        );
+        return $this->player->addBet($this->gamedata['id'], $amount, $data);
     }
 
     public function getVersion()
     {
         return $this->gamedata['version'];
+    }
+
+    public function getGameId()
+    {
+        return $this->gamedata['id'];
     }
 
 }

@@ -35,7 +35,7 @@ class Devmod extends Nette\Object
     {
         $userid = $userid ? $userid : $this->user->id;
         $user = $this->database->table('user')->get($userid);
-        $user->update(array('credits' => $amount));
+        $user->update(array('credits' => $user->credits + $amount));
     }
 
 }
